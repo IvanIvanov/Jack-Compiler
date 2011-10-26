@@ -208,7 +208,7 @@ class JackToVMCompiler(object):
 
   def CompileRegularIfStatement(self, statement, env):
     self.if_count += 1
-    label = "end-if-%d" % (self.if_count)
+    label = "end_if_%d" % (self.if_count)
 
     result = []
     result.extend(self.CompileExpression(statement.expression, env))
@@ -220,8 +220,8 @@ class JackToVMCompiler(object):
 
   def CompileIfElseStatement(self, statement, env):
     self.if_count += 1
-    label1 = "else-clause-%d" % (self.if_count)
-    label2 = "end-if-%d" % (self.if_count)
+    label1 = "else_clause_%d" % (self.if_count)
+    label2 = "end_if_%d" % (self.if_count)
 
     result = []
     result.extend(self.CompileExpression(statement.expression, env))
@@ -236,8 +236,8 @@ class JackToVMCompiler(object):
 
   def CompileWhileStatement(self, statement, env):
     self.while_count += 1
-    label1 = "start-while-%d" % (self.while_count)
-    label2 = "end-while-%d" % (self.while_count)
+    label1 = "start_while_%d" % (self.while_count)
+    label2 = "end_while_%d" % (self.while_count)
 
     result = []
     result.extend(self.CompileLabelCommand(label1))
